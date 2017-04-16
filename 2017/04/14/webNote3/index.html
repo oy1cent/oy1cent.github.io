@@ -3,17 +3,19 @@
 <head>
   <meta charset="utf-8">
   
-  <title>歐陽Vincent</title>
+  <title>Js笔记（一） | 歐陽Vincent</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="A blog for web note.">
-<meta property="og:type" content="website">
-<meta property="og:title" content="歐陽Vincent">
-<meta property="og:url" content="http://www.0y0.top/index.html">
+  <meta name="description" content="JS作用域JavaScript权威指南 中提出的“没有块级作用域” 112345var i = 10;function a()&amp;#123;	alert(i);&amp;#125;;a();//输出10 2123456var i = 10;function a()&amp;#123;	alert(i);	var i = 1 ;&amp;#125;;a(); 在变量解析过程中首先查找局部的作用域，然后查找上层作用域。在代码一">
+<meta name="keywords">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Js笔记（一）">
+<meta property="og:url" content="http://www.0y0.top/2017/04/14/webNote3/index.html">
 <meta property="og:site_name" content="歐陽Vincent">
-<meta property="og:description" content="A blog for web note.">
+<meta property="og:description" content="JS作用域JavaScript权威指南 中提出的“没有块级作用域” 112345var i = 10;function a()&amp;#123;	alert(i);&amp;#125;;a();//输出10 2123456var i = 10;function a()&amp;#123;	alert(i);	var i = 1 ;&amp;#125;;a(); 在变量解析过程中首先查找局部的作用域，然后查找上层作用域。在代码一">
+<meta property="og:updated_time" content="2017-04-16T12:17:24.758Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="歐陽Vincent">
-<meta name="twitter:description" content="A blog for web note.">
+<meta name="twitter:title" content="Js笔记（一）">
+<meta name="twitter:description" content="JS作用域JavaScript权威指南 中提出的“没有块级作用域” 112345var i = 10;function a()&amp;#123;	alert(i);&amp;#125;;a();//输出10 2123456var i = 10;function a()&amp;#123;	alert(i);	var i = 1 ;&amp;#125;;a(); 在变量解析过程中首先查找局部的作用域，然后查找上层作用域。在代码一">
   
     <link rel="alternative" href="/atom.xml" title="歐陽Vincent" type="application/atom+xml">
   
@@ -27,9 +29,6 @@
   <link rel="stylesheet" href="/font-awesome/css/font-awesome.min.css">
   <link rel="apple-touch-icon" href="/apple-touch-icon.png">
   
-    
-    
-  
   
       <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
   
@@ -41,8 +40,8 @@
           rootUrl: '/',
           fancybox: true,
           animate: true,
-          isHome: true,
-          isPost: false,
+          isHome: false,
+          isPost: true,
           isArchive: false,
           isTag: false,
           isCategory: false,
@@ -212,9 +211,7 @@
         </header>                
     </div>
 </nav>
-      <div class="body-wrap">
-  
-    <article id="post-webNote3" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-webNote3" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
       <a href="/2017/04/14/webNote3/" class="article-date">
@@ -230,12 +227,19 @@
       <header class="article-header">
         
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/04/14/webNote3/">Js笔记（一）</a>
+    <h1 class="article-title" itemprop="name">
+      Js笔记（一）
     </h1>
   
 
       </header>
+      
+      <div class="article-info article-info-post">
+        
+
+        
+        <div class="clearfix"></div>
+      </div>
       
     
     <div class="article-entry" itemprop="articleBody">
@@ -250,165 +254,131 @@
       
     </div>
     
-    <div class="article-info article-info-index">
-      
-      
-
-      
-      
-      <div class="clearfix"></div>
-    </div>
-    
   </div>
   
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-webNote2" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2017/04/14/webNote2/" class="article-date">
-      <time datetime="2017-04-13T16:14:10.997Z" itemprop="datePublished">2017-04-14</time>
-</a>
+    
+    <div class="copyright">
+        <p><span>本文标题:</span><a href="/2017/04/14/webNote3/">Js笔记（一）</a></p>
+        <p><span>文章作者:</span><a href="/" title="访问 oyv1cent 的个人博客">oyv1cent</a></p>
+        <p><span>发布时间:</span>2017年04月14日 - 13时27分</p>
+        <p><span>最后更新:</span>2017年04月16日 - 20时17分</p>
+        <p>
+            <span>原始链接:</span><a class="post-url" href="/2017/04/14/webNote3/" title="Js笔记（一）">http://www.0y0.top/2017/04/14/webNote3/</a>
+            <span class="copy-path" data-clipboard-text="原文: http://www.0y0.top/2017/04/14/webNote3/　　作者: oyv1cent" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <script src="/js/clipboard.min.js"></script>
+            <script> var clipboard = new Clipboard('.copy-path'); </script>
+        </p>
+        <p>
+            <span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/cn/" title="中国大陆 (CC BY-NC-SA 3.0 CN)" target = "_blank">"署名-非商用-相同方式共享 3.0"</a> 转载请保留原文链接及作者。
+        </p>
     </div>
+
+
+
+<nav id="article-nav">
   
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
+    <a href="/2017/04/14/webNote2/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption"><</strong>
+      <div class="article-nav-title">
         
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/04/14/webNote2/">前端笔记 html+css（二）</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-        <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>开始写笔记啦！<br>html5跟css3 这个坑准备开始填了。<br>这段时间在学Js,所以不时也会更新一些Js感悟与笔记。</p>
-<ul>
-<li>Yesterday you said tomorrow,so let me begin!<h2 id="开始"><a href="#开始" class="headerlink" title="开始"></a>开始</h2></li>
-</ul>
-<p>网页一般由Html css javascript构成</p>
-<p>其中HTML 决定结构层</p>
-<p>而CSS 决定表现层</p>
-<p>JavaScript 决定行为层</p>
-<h2 id="Html"><a href="#Html" class="headerlink" title="Html"></a>Html</h2><ul>
-<li><p>标签的闭合</p>
-</li>
-<li><p>空的HTML元素 使用 &lt;br /&gt; 其实是更长远的保障。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;br /&gt;</div></pre></td></tr></table></figure>
-</li>
-<li><p>使用小写标签</p>
-</li>
-<li><p>HTML &lt;div&gt; 元素是块级元素，它是可用于组合其他 HTML 元素的容器。<br>HTML &lt;span&gt; 元素是内联元素，可用作文本的容器。</p>
-</li>
-</ul>
-<h2 id="Css"><a href="#Css" class="headerlink" title="Css"></a>Css</h2><p>刚学Css的时候,感觉还是比较简单的。<br>后面看了一本Css3的书,才发现Css并不简单!<br>一些动画,一些可以用CSS3实现的,就尽量避免使用Js。<br>要降低对Js的依赖。</p>
-
-      
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-webNote1" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2017/04/13/webNote1/" class="article-date">
-      <time datetime="2017-04-13T13:57:08.616Z" itemprop="datePublished">2017-04-13</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
+          前端笔记 html+css（二）
         
+      </div>
+    </a>
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/04/13/webNote1/">前端笔记 hexo（一）</a>
-    </h1>
   
+</nav>
 
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-        <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>今天第一天搭建自己的hexo个人博客，<br>了解到了一些git以及github方面的知识。<br>那么第一天的前端笔记，就只进行更新关于<br>hexo的一些感想。</p>
-<h2 id="什么是Hexo"><a href="#什么是Hexo" class="headerlink" title="什么是Hexo?"></a>什么是Hexo?</h2><p>Hexo 是一个快速、简洁且高效的博客框架。Hexo 使用 Markdown（或其他渲染引擎）解析文章，在几秒内，即可利用靓丽的主题生成静态网页。</p>
-<h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><p>安装Hexo是很快捷方便的,安装之前,需要安装：</p>
-<ul>
-<li>Node.js</li>
-<li>Git</li>
-</ul>
-<p>然后使用nmp完成Hexo的安装</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">npm install hexo-cli -g</div><div class="line">npm install hexo -save</div><div class="line">hexo -v</div></pre></td></tr></table></figure>
-      
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
   
 </article>
 
+    <div id="toc" class="toc-article">
+    <strong class="toc-title">文章目录</strong>
+    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#JS作用域"><span class="toc-number">1.</span> <span class="toc-text">JS作用域</span></a></li></ol>
+</div>
+<input type="button" id="tocButton" value="隐藏目录"  title="点击按钮隐藏或者显示文章目录">
+
+<script src="https://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+<script>
+    var valueHide = "隐藏目录";
+    var valueShow = "显示目录";
+
+    if ($(".left-col").is(":hidden")) {
+        $("#tocButton").attr("value", valueShow);
+    }
+    $("#tocButton").click(function() {
+        if ($("#toc").is(":hidden")) {
+            $("#tocButton").attr("value", valueHide);
+            $("#toc").slideDown(320);
+        }
+        else {
+            $("#tocButton").attr("value", valueShow);
+            $("#toc").slideUp(350);
+        }
+    })
+    if ($(".toc").length < 1) {
+        $("#toc, #tocButton").hide();
+    }
+</script>
 
 
 
 
 
+<div class="bdsharebuttonbox">
+	<a href="#" class="fx fa-weibo bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+	<a href="#" class="fx fa-weixin bds_weixin" data-cmd="weixin" title="分享到微信"></a>
+	<a href="#" class="fx fa-qq bds_sqq" data-cmd="sqq" title="分享到QQ好友"></a>
+	<a href="#" class="fx fa-facebook-official bds_fbook" data-cmd="fbook" title="分享到Facebook"></a>
+	<a href="#" class="fx fa-twitter bds_twi" data-cmd="twi" title="分享到Twitter"></a>
+	<a href="#" class="fx fa-linkedin bds_linkedin" data-cmd="linkedin" title="分享到linkedin"></a>
+	<a href="#" class="fx fa-files-o bds_copy" data-cmd="copy" title="分享到复制网址"></a>
+</div>
+<script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"2","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];</script>
 
 
 
-  
-  
+
+    
+
+
+
+    <div class="scroll" id="post-nav-button">
+        
+            <a href="/2017/04/14/webNote2/" title="上一篇: 前端笔记 html+css（二）">
+                <i class="fa fa-angle-left"></i>
+            </a>
+        
+        <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
+        
+            <a href="/" title="回到主页"><i class="fa fa-home"></i></a>
+        
+    </div>
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2017/04/14/webNote3/">Js笔记（一）</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/14/webNote2/">前端笔记 html+css（二）</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/13/webNote1/">前端笔记 hexo（一）</a></li></ul>
+    <script src="https://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+    <script>
+        $(".post-list").addClass("toc-article");
+        $(".post-list-item a").attr("target","_blank");
+        $("#post-nav-button > a:nth-child(2)").click(function() {
+            $(".fa-bars, .fa-times").toggle();
+            $(".post-list").toggle(300);
+            if ($(".toc").length > 0) {
+                $("#toc, #tocButton").toggle(200, function() {
+                    if ($(".switch-area").is(":visible")) {
+                        $("#tocButton").attr("value", valueHide);
+                        }
+                    })
+            }
+            else {
+            }
+        })
+    </script>
+
+
+
+    <script>
+        
+    </script>
 </div>
       <footer id="footer">
     <div class="outer">
