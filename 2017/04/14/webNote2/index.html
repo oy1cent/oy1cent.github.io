@@ -3,19 +3,19 @@
 <head>
   <meta charset="utf-8">
   
-  <title>前端笔记 html+css（二） | 歐陽Vincent</title>
+  <title>Js笔记（二） | 歐陽Vincent</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="前言开始写笔记啦！html5跟css3 这个坑准备开始填了。这段时间在学Js,所以不时也会更新一些Js感悟与笔记。  Yesterday you said tomorrow,so let me begin!开始  网页一般由Html css javascript构成 其中HTML 决定结构层 而CSS 决定表现层 JavaScript 决定行为层 Html 标签的闭合  空的HTML元素 使用 &amp;">
+  <meta name="description" content="JS作用域JavaScript权威指南 中提出的“没有块级作用域” 112345var i = 10;function a()&amp;#123;	alert(i);&amp;#125;;a();//输出10 2123456var i = 10;function a()&amp;#123;	alert(i);	var i = 1 ;&amp;#125;;a(); 在变量解析过程中首先查找局部的作用域，然后查找上层作用域。在代码一">
 <meta name="keywords">
 <meta property="og:type" content="article">
-<meta property="og:title" content="前端笔记 html+css（二）">
+<meta property="og:title" content="Js笔记（二）">
 <meta property="og:url" content="http://www.0y0.top/2017/04/14/webNote2/index.html">
 <meta property="og:site_name" content="歐陽Vincent">
-<meta property="og:description" content="前言开始写笔记啦！html5跟css3 这个坑准备开始填了。这段时间在学Js,所以不时也会更新一些Js感悟与笔记。  Yesterday you said tomorrow,so let me begin!开始  网页一般由Html css javascript构成 其中HTML 决定结构层 而CSS 决定表现层 JavaScript 决定行为层 Html 标签的闭合  空的HTML元素 使用 &amp;">
-<meta property="og:updated_time" content="2017-04-14T04:15:45.810Z">
+<meta property="og:description" content="JS作用域JavaScript权威指南 中提出的“没有块级作用域” 112345var i = 10;function a()&amp;#123;	alert(i);&amp;#125;;a();//输出10 2123456var i = 10;function a()&amp;#123;	alert(i);	var i = 1 ;&amp;#125;;a(); 在变量解析过程中首先查找局部的作用域，然后查找上层作用域。在代码一">
+<meta property="og:updated_time" content="2017-04-18T16:31:32.816Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="前端笔记 html+css（二）">
-<meta name="twitter:description" content="前言开始写笔记啦！html5跟css3 这个坑准备开始填了。这段时间在学Js,所以不时也会更新一些Js感悟与笔记。  Yesterday you said tomorrow,so let me begin!开始  网页一般由Html css javascript构成 其中HTML 决定结构层 而CSS 决定表现层 JavaScript 决定行为层 Html 标签的闭合  空的HTML元素 使用 &amp;">
+<meta name="twitter:title" content="Js笔记（二）">
+<meta name="twitter:description" content="JS作用域JavaScript权威指南 中提出的“没有块级作用域” 112345var i = 10;function a()&amp;#123;	alert(i);&amp;#125;;a();//输出10 2123456var i = 10;function a()&amp;#123;	alert(i);	var i = 1 ;&amp;#125;;a(); 在变量解析过程中首先查找局部的作用域，然后查找上层作用域。在代码一">
   
     <link rel="alternative" href="/atom.xml" title="歐陽Vincent" type="application/atom+xml">
   
@@ -215,7 +215,7 @@
   
     <div class="article-meta">
       <a href="/2017/04/14/webNote2/" class="article-date">
-      <time datetime="2017-04-13T16:14:10.997Z" itemprop="datePublished">2017-04-14</time>
+      <time datetime="2017-04-14T05:27:45.548Z" itemprop="datePublished">2017-04-14</time>
 </a>
     </div>
   
@@ -228,7 +228,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      前端笔记 html+css（二）
+      Js笔记（二）
     </h1>
   
 
@@ -245,26 +245,30 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>开始写笔记啦！<br>html5跟css3 这个坑准备开始填了。<br>这段时间在学Js,所以不时也会更新一些Js感悟与笔记。</p>
+        <h2 id="JS作用域"><a href="#JS作用域" class="headerlink" title="JS作用域"></a>JS作用域</h2><p>JavaScript权威指南 中提出的“没有块级作用域”</p>
+<p>1<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">var i = 10;</div><div class="line"><span class="keyword">function</span> <span class="function"><span class="title">a</span></span>()&#123;</div><div class="line">	alert(i);</div><div class="line">&#125;;</div><div class="line">a();//输出10</div></pre></td></tr></table></figure></p>
+<p>2<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">var i = 10;</div><div class="line"><span class="keyword">function</span> <span class="function"><span class="title">a</span></span>()&#123;</div><div class="line">	alert(i);</div><div class="line">	var i = 1 ;</div><div class="line">&#125;;</div><div class="line">a();</div></pre></td></tr></table></figure></p>
+<p>在变量解析过程中首先查找局部的作用域，然后查找上层作用域。在代码一的函数当中没有定义变量i，于是查找上层作用域（全局作用域），进而进行输出其值。但是在代码二的函数内定义了变量i（无论是在alter之后还是之前定义变量，都认为在此作用域拥有变量i），于是不再向上层的作用域进行查找，直接输出i。但是不幸的是此时的局部变量i并没有赋值，所以输出的是undefined。</p>
+<h2 id="闭包与定时器"><a href="#闭包与定时器" class="headerlink" title="闭包与定时器"></a>闭包与定时器</h2><p>写轮播图，在设置自动滚动的时候发现了一些坑<br>今天看了一篇关于闭包的文章，原来坑就是闭包还有定时器= =</p>
+<p>上代码：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">for (var i = 0; i &lt; 5; i++) &#123;</div><div class="line">    setTimeout(function() &#123;</div><div class="line">        console.log(new Date, i);</div><div class="line">    &#125;, 1000);</div><div class="line">&#125;</div><div class="line"></div><div class="line">console.log(new Date, i);</div></pre></td></tr></table></figure></p>
+<p>如果不好好思考的话，很容易想着输出</p>
 <ul>
-<li>Yesterday you said tomorrow,so let me begin!<h2 id="开始"><a href="#开始" class="headerlink" title="开始"></a>开始</h2></li>
+<li>0，1，2，3，4，5</li>
 </ul>
-<p>网页一般由Html css javascript构成</p>
-<p>其中HTML 决定结构层</p>
-<p>而CSS 决定表现层</p>
-<p>JavaScript 决定行为层</p>
-<h2 id="Html"><a href="#Html" class="headerlink" title="Html"></a>Html</h2><ul>
-<li><p>标签的闭合</p>
-</li>
-<li><p>空的HTML元素 使用 &lt;br /&gt; 其实是更长远的保障。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;br /&gt;</div></pre></td></tr></table></figure>
-</li>
-<li><p>使用小写标签</p>
-</li>
-<li><p>HTML &lt;div&gt; 元素是块级元素，它是可用于组合其他 HTML 元素的容器。<br>HTML &lt;span&gt; 元素是内联元素，可用作文本的容器。</p>
+<p>实际呢，这道题是</p>
+<ul>
+<li>5, 5, 5, 5, 5, 5<br>并且呢，是在输出一个5，之后间隔1s的时间才输出剩下的</li>
+</ul>
+<p>这里呢 就涉及到了关于定时器工作机制的问题了<br>我们在循环执行过程中，几乎同时设置了5个定时器，<br>这些定时器都会在 1 秒之后触发，而循环完的输出是立即执行的</p>
+<p>那么，我们改一改代码，让输出变成</p>
+<ul>
+<li>5, 0, 1, 2, 3, 4<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">for(var i = 0;i &lt; 5;i++)&#123;</div><div class="line">	setTimeout(function(j)&#123;</div><div class="line">	console.log(new Date,j);</div><div class="line">	&#125;,1000,i);</div><div class="line">&#125; </div><div class="line"></div><div class="line">console.log(new Date,i)</div></pre></td></tr></table></figure>
 </li>
 </ul>
-<h2 id="Css"><a href="#Css" class="headerlink" title="Css"></a>Css</h2><p>刚学Css的时候,感觉还是比较简单的。<br>后面看了一本Css3的书,才发现Css并不简单!<br>一些动画,一些可以用CSS3实现的,就尽量避免使用Js。<br>要降低对Js的依赖。</p>
+<p>还有一种直观的方法：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">var output = function(i)&#123;</div><div class="line">	setTimeout(function()&#123;</div><div class="line">	console.log(new Date,i);</div><div class="line">	&#125;,1000);</div><div class="line">&#125;;</div><div class="line"></div><div class="line">for(var i =0;i &lt; 5;i++)&#123;</div><div class="line">	output(i);</div><div class="line">&#125;</div><div class="line"></div><div class="line">console.log(new Date,i);</div></pre></td></tr></table></figure></p>
+<p>这种方法就是 循环一次调用一次<br>因为循环是瞬间完成的事，所以定时器的1s延时是同一个</p>
+<p>再单独聊聊闭包</p>
+<h2 id="闭包"><a href="#闭包" class="headerlink" title="闭包"></a>闭包</h2><p>当函数可以记住并访问所在的词法作用域（lexical scoping)，并且保持着对词法作用域的引用，即使函数是在当前作用域之外执行，就会形成闭包。对于闭包的形成，实质上涉及的就是词法作用域和将函数作为值return词法作用域是由函数声明时所在的位置决定的，而闭包是词法作用域形成的自然结果。当在函数内部声明了内部函数，并将内部函数作为值返回，就会产生闭包</p>
 
       
       
@@ -274,12 +278,12 @@
   
     
     <div class="copyright">
-        <p><span>本文标题:</span><a href="/2017/04/14/webNote2/">前端笔记 html+css（二）</a></p>
+        <p><span>本文标题:</span><a href="/2017/04/14/webNote2/">Js笔记（二）</a></p>
         <p><span>文章作者:</span><a href="/" title="访问 oyv1cent 的个人博客">oyv1cent</a></p>
-        <p><span>发布时间:</span>2017年04月14日 - 00时14分</p>
-        <p><span>最后更新:</span>2017年04月14日 - 12时15分</p>
+        <p><span>发布时间:</span>2017年04月14日 - 13时27分</p>
+        <p><span>最后更新:</span>2017年04月19日 - 00时31分</p>
         <p>
-            <span>原始链接:</span><a class="post-url" href="/2017/04/14/webNote2/" title="前端笔记 html+css（二）">http://www.0y0.top/2017/04/14/webNote2/</a>
+            <span>原始链接:</span><a class="post-url" href="/2017/04/14/webNote2/" title="Js笔记（二）">http://www.0y0.top/2017/04/14/webNote2/</a>
             <span class="copy-path" data-clipboard-text="原文: http://www.0y0.top/2017/04/14/webNote2/　　作者: oyv1cent" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
             <script src="/js/clipboard.min.js"></script>
             <script> var clipboard = new Clipboard('.copy-path'); </script>
@@ -297,7 +301,7 @@
       <strong class="article-nav-caption"><</strong>
       <div class="article-nav-title">
         
-          前端笔记 hexo（一）
+          前端笔记 hexo
         
       </div>
     </a>
@@ -315,7 +319,7 @@
 
     <div id="toc" class="toc-article">
     <strong class="toc-title">文章目录</strong>
-    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#前言"><span class="toc-number">1.</span> <span class="toc-text">前言</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#开始"><span class="toc-number">2.</span> <span class="toc-text">开始</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Html"><span class="toc-number">3.</span> <span class="toc-text">Html</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Css"><span class="toc-number">4.</span> <span class="toc-text">Css</span></a></li></ol>
+    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#JS作用域"><span class="toc-number">1.</span> <span class="toc-text">JS作用域</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#闭包与定时器"><span class="toc-number">2.</span> <span class="toc-text">闭包与定时器</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#闭包"><span class="toc-number">3.</span> <span class="toc-text">闭包</span></a></li></ol>
 </div>
 <input type="button" id="tocButton" value="隐藏目录"  title="点击按钮隐藏或者显示文章目录">
 
@@ -366,7 +370,7 @@
 
     <div class="scroll" id="post-nav-button">
         
-            <a href="/2017/04/13/webNote1/" title="上一篇: 前端笔记 hexo（一）">
+            <a href="/2017/04/13/webNote1/" title="上一篇: 前端笔记 hexo">
                 <i class="fa fa-angle-left"></i>
             </a>
         
@@ -377,7 +381,7 @@
             </a>
         
     </div>
-    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2017/04/16/webNote4/">Js笔记（二）</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/14/webNote3/">Js笔记（一）</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/14/webNote2/">前端笔记 html+css（二）</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/13/webNote1/">前端笔记 hexo（一）</a></li></ul>
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2017/04/14/webNote2/">Js笔记（二）</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/14/webNote3/">Js笔记（一）</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/13/webNote1/">前端笔记 hexo</a></li></ul>
     <script src="https://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
     <script>
         $(".post-list").addClass("toc-article");
