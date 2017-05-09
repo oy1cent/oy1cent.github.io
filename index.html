@@ -214,6 +214,70 @@
 </nav>
       <div class="body-wrap">
   
+    <article id="post-webNote6" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2017/05/08/webNote6/" class="article-date">
+      <time datetime="2017-05-07T16:21:49.816Z" itemprop="datePublished">2017-05-08</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/05/08/webNote6/">js笔记 this与call和apply</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <h2 id="this"><a href="#this" class="headerlink" title="this"></a>this</h2><p>关键字this，它是动态确定的，即在函数运行时才确定this所指向的对象，而非声明时所指向的对象。<br>call和apply可以改变this的指向，这个我们后面再说。</p>
+<h1 id="1-对象方法中调用this"><a href="#1-对象方法中调用this" class="headerlink" title="1 对象方法中调用this"></a>1 对象方法中调用this</h1><ul>
+<li>如果函数被当中对象的一个方法进行调用，则this值指向该对象。<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">var person = &#123;</div><div class="line">    name: &apos;Alice&apos;,</div><div class="line">    sayName: function() &#123;</div><div class="line">        alert(&apos;welcome &apos; + this.name);</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">person.sayName();    // this == person, alert: &apos;welcome Alice&apos;</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>在这里，函数的this指向该对象(即 person)；但是有一点需要注意，就是当对象的方法被赋予给一个变量时，其则变为了函数触发，此时的this为 window 或者 undefined(严格模式下)<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">var name = &apos;Bob&apos;;</div><div class="line">var person;    // 即上面的定义</div><div class="line"></div><div class="line">var say = person.sayName;    // this == window || undefined</div><div class="line">say();    // &apos;welcome Bob&apos; || throw an error: Cannot read property &apos;name&apos; of undefined(...)</div></pre></td></tr></table></figure></p>
+<h1 id="2-函数内部使用"><a href="#2-函数内部使用" class="headerlink" title="2 函数内部使用"></a>2 函数内部使用</h1><p>在函数内部当中使用了 this，即函数被当做方法使用，不同于 1 当中作为对象的方法使用，此时调用，是在全局作用域下进行调用，即在window下进行调用，由定义可以知道，在全局作用域下声明一个函数，其自动加为window的一个属性。this此时名正言顺的会指向window，严格模式下为 undefined<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">function sayThis() &#123;</div><div class="line">    alert(this == window);    // true</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<h2 id="使用-call、apply-或-bind-改变-this"><a href="#使用-call、apply-或-bind-改变-this" class="headerlink" title="使用 call、apply 或 bind 改变 this"></a>使用 call、apply 或 bind 改变 this</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">var name = &apos;Bob&apos;;</div><div class="line">var person = &#123;</div><div class="line">    name: &apos;Alice&apos;,</div><div class="line">    age: 29</div><div class="line">&#125;</div><div class="line"></div><div class="line">function sayName() &#123;</div><div class="line">    console.log(this.name);</div><div class="line">&#125;</div><div class="line"></div><div class="line">sayName.call(person);    // Alice</div><div class="line">sayName(); //Bob</div></pre></td></tr></table></figure>
+<p>此时就是通过call改变了this指向，第一个this是person，第二个this是window。</p>
+<h1 id="call和apply区别"><a href="#call和apply区别" class="headerlink" title="call和apply区别"></a>call和apply区别</h1><p>他们的作用是一样的，只是传递的参数不一样而已。<br>apply： 接受2个参数，第一个参数指定了函数体内this对象的指向，第二个参数为数组或者一个类数组。apply传入的是一个参数数组，也就是将多个参数组合成为一个数组传入，而call则作为call的参数传入（从第二个参数开始）。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">const obj1 = &#123;</div><div class="line">    name: &apos;Alice&apos;,</div><div class="line">    getName: function() &#123;</div><div class="line">        return this.name;</div><div class="line">    &#125;</div><div class="line">&#125;;</div><div class="line">const obj2 = &#123;</div><div class="line">    name: &apos;Bob&apos;</div><div class="line">&#125;</div><div class="line">console.log(obj1.getName());  // &quot;Alice&quot;</div><div class="line">console.log(obj1.getName.call(obj2));  // &quot;Bob&quot;</div><div class="line">console.log(obj1.getName.apply(obj2));  // &quot;Bob&quot;</div></pre></td></tr></table></figure></p>
+
+      
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
     <article id="post-webNote5" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
