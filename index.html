@@ -118,7 +118,7 @@
                     <nav class="header-menu">
                         <ul>
                         
-                            <li><a href="/">博客首页</a></li>
+                            <li><a href="/">个人简历</a></li>
                         
                             <li><a href="/page">作品展示</a></li>
                         
@@ -191,7 +191,7 @@
             <nav class="header-menu">
                 <ul>
                 
-                    <li><a href="/">博客首页</a></li>
+                    <li><a href="/">个人简历</a></li>
                 
                     <li><a href="/page">作品展示</a></li>
                 
@@ -213,6 +213,70 @@
     </div>
 </nav>
       <div class="body-wrap">
+  
+    <article id="post-webNote9" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2017/05/18/webNote9/" class="article-date">
+      <time datetime="2017-05-18T12:50:32.245Z" itemprop="datePublished">2017-05-18</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/05/18/webNote9/">js30</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <h2 id="学习js30"><a href="#学习js30" class="headerlink" title="学习js30"></a>学习js30</h2><p><a href="www.0y0.top/changeStyle">小项目</a><br>今天继续学习js30<br>input type=”range”,这是一个可以点击滑动的范围按钮</p>
+<p>input type=”color”,这是一个可以选择颜色的颜色选择器</p>
+<p>我们通过滑动按钮跟选择颜色，去改变一个h1文本的颜色以及大小</p>
+<p>html：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">&lt;div class=&quot;container&quot;&gt;</div><div class="line">		&lt;input type=&quot;range&quot; name=&quot;size&quot; min=&quot;20&quot; max=&quot;200&quot; value=&quot;80&quot; id=&quot;fontSize&quot;&gt;</div><div class="line">		&lt;input type=&quot;color&quot; name=&quot;color&quot; value=&quot;#13cccc&quot; id=&quot;color&quot;&gt;</div><div class="line">&lt;/div&gt;</div><div class="line">	&lt;h1&gt;Hello world&lt;/h1&gt;</div></pre></td></tr></table></figure>
+<p>css:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">:root&#123;</div><div class="line">	--color: #13cccc;</div><div class="line">	--size: 80px;</div><div class="line">&#125;</div><div class="line">.container&#123;</div><div class="line">	margin: 0 auto;</div><div class="line">	width: 400px;</div><div class="line">	margin-top: 100px;</div><div class="line">&#125;</div><div class="line">h1&#123;</div><div class="line">	color: var(--color);</div><div class="line">	font-size: var(--size);</div><div class="line">	text-align: center;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>css这里呢,:root伪类匹配文档树的根元素,通过:root声明全局CSS变量。</p>
+<p>改变h1的颜色以及字体大小，就是改变变量–color,–size的值</p>
+<p>通过js获取color以及size的改变值，然后对应的去改变变量值</p>
+<p>js:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">/*获取*/</div><div class="line">const color = document.getElementById(&apos;color&apos;);</div><div class="line">const fontSize = document.getElementById(&apos;fontSize&apos;);</div><div class="line">const head = document.querySelector(&quot;h1&quot;);</div><div class="line"></div><div class="line">/*获取颜色值并改变字体颜色*/</div><div class="line">color.addEventListener(&quot;change&quot;,function()&#123;</div><div class="line">	head.style.setProperty(&quot;--color&quot;,this.value);</div><div class="line">&#125;)</div><div class="line">/*获取范围的值并改变字体大小*/</div><div class="line">fontSize.addEventListener(&quot;mousemove&quot;,function()&#123;</div><div class="line">	head.style.setProperty(&quot;--size&quot;,this.value+&quot;px&quot;);</div><div class="line">&#125;)</div></pre></td></tr></table></figure></p>
+
+      
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
   
     <article id="post-webNote8" class="article article-type-post" itemscope itemprop="blogPost">
   
@@ -288,11 +352,21 @@
       <input type="hidden" class="isFancy" />
     
     
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/05/09/webNote7/">star法则</a>
+    </h1>
+  
+
+      </header>
+      
+    
     <div class="article-entry" itemprop="articleBody">
       
           
-        <hr>
-<h2 id="star法则"><a href="#star法则" class="headerlink" title="star法则"></a>star法则</h2><p>##star法则<br>STAR法则,即为Situation Task Action Result的缩写，具体含义是:</p>
+        <p>##star法则<br>STAR法则,即为Situation Task Action Result的缩写，具体含义是:</p>
 <ul>
 <li>Situation: 事情是在什么情况下发生</li>
 <li>Task: 你是如何明确你的任务的</li>
@@ -404,11 +478,21 @@
       <input type="hidden" class="isFancy" />
     
     
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/05/04/webNote5/">CSS布局</a>
+    </h1>
+  
+
+      </header>
+      
+    
     <div class="article-entry" itemprop="articleBody">
       
           
-        <hr>
-<h2 id="CSS布局"><a href="#CSS布局" class="headerlink" title="CSS布局"></a>CSS布局</h2><h2 id="水平居中布局"><a href="#水平居中布局" class="headerlink" title="水平居中布局"></a>水平居中布局</h2><h1 id="1-margin-定宽"><a href="#1-margin-定宽" class="headerlink" title="1.margin + 定宽"></a>1.margin + 定宽</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">&lt;div class=&quot;parent&quot;&gt;</div><div class="line">  &lt;div class=&quot;child&quot;&gt;Demo&lt;/div&gt;</div><div class="line">&lt;/div&gt;</div><div class="line"></div><div class="line">&lt;style&gt;</div><div class="line">  .child &#123;</div><div class="line">    width: 100px;</div><div class="line">    margin: 0 auto;</div><div class="line">  &#125;</div><div class="line">&lt;/style&gt;</div></pre></td></tr></table></figure>
+        <h2 id="水平居中布局"><a href="#水平居中布局" class="headerlink" title="水平居中布局"></a>水平居中布局</h2><h1 id="1-margin-定宽"><a href="#1-margin-定宽" class="headerlink" title="1.margin + 定宽"></a>1.margin + 定宽</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">&lt;div class=&quot;parent&quot;&gt;</div><div class="line">  &lt;div class=&quot;child&quot;&gt;Demo&lt;/div&gt;</div><div class="line">&lt;/div&gt;</div><div class="line"></div><div class="line">&lt;style&gt;</div><div class="line">  .child &#123;</div><div class="line">    width: 100px;</div><div class="line">    margin: 0 auto;</div><div class="line">  &#125;</div><div class="line">&lt;/style&gt;</div></pre></td></tr></table></figure>
 <h1 id="2-table-margin"><a href="#2-table-margin" class="headerlink" title="2. table + margin"></a>2. table + margin</h1><ul>
 <li>display: table 在表现上类似 block 元素，但是宽度为内容宽。<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">&lt;style&gt;</div><div class="line">  .child &#123;</div><div class="line">    display: table;</div><div class="line">    margin: 0 auto;</div><div class="line">  &#125;</div><div class="line">&lt;/style&gt;</div></pre></td></tr></table></figure>
 </li>
