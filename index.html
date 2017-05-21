@@ -214,6 +214,116 @@
 </nav>
       <div class="body-wrap">
   
+    <article id="post-webNote11" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2017/05/21/webNote11/" class="article-date">
+      <time datetime="2017-05-21T10:03:43.276Z" itemprop="datePublished">2017-05-21</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/05/21/webNote11/">box 盒子</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <h2 id="盒布局"><a href="#盒布局" class="headerlink" title="盒布局"></a>盒布局</h2><h1 id="box"><a href="#box" class="headerlink" title="box"></a>box</h1><p>看完flex之后，又过来把css3的盒布局复习一下<br>display:box || inline-box<br>用在基于webkit的chrome浏览器时，要display: -webkit-box;<br>gecko内核的浏览器 display: -moz-box;</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">&lt;div class=&quot;container&quot;&gt;</div><div class="line">	&lt;div class=&quot;box1&quot;&gt;</div><div class="line">		box1</div><div class="line">	&lt;/div&gt;</div><div class="line">	&lt;div class=&quot;box2&quot;&gt;</div><div class="line">		box2</div><div class="line">	&lt;/div&gt;</div><div class="line">	&lt;div class=&quot;box3&quot;&gt;</div><div class="line">		box3</div><div class="line">	&lt;/div&gt;</div><div class="line">&lt;/div&gt;</div></pre></td></tr></table></figure>
+<p>给容器container一个display: box;<br>内部的box元素就会改变原有的文档流动方式，使用盒布局默认的文档流动方式。</p>
+<h1 id="元素的布局方向-–-box-orient"><a href="#元素的布局方向-–-box-orient" class="headerlink" title="元素的布局方向 – box-orient"></a>元素的布局方向 – box-orient</h1><p>box-orient属性: </p>
+<ul>
+<li>horizontal//水平线从左到右</li>
+<li>vertical//垂直线从上到下</li>
+<li>inline-axis(默认值)//表示盒子元素沿着内联轴编排它的子元素，表现为横向编排</li>
+<li>block-axis//表示元素沿着块轴编排它的子元素，表现为垂直编排</li>
+<li>inherit//继承父元素</li>
+</ul>
+<h1 id="元素的布局顺序-box-derection"><a href="#元素的布局顺序-box-derection" class="headerlink" title="元素的布局顺序 box-derection"></a>元素的布局顺序 box-derection</h1><p>box-derection属性：</p>
+<ul>
+<li>normal(默认值)// godv</li>
+<li>reverse//反向排列 vdog</li>
+<li>inherit//继承父元素</li>
+</ul>
+<h1 id="调整元素位置-box-ordinal-group"><a href="#调整元素位置-box-ordinal-group" class="headerlink" title="调整元素位置 box-ordinal-group"></a>调整元素位置 box-ordinal-group</h1><p>box-ordinal-group属性：</p>
+<ul>
+<li>integer //自然整数 越小越左 越大越右</li>
+</ul>
+<h1 id="弹性空间分配-box-flex"><a href="#弹性空间分配-box-flex" class="headerlink" title="弹性空间分配 box-flex"></a>弹性空间分配 box-flex</h1><p>设置值 子元素宽度弹性变化</p>
+<h1 id="元素的对齐方式-box-pack-box-align"><a href="#元素的对齐方式-box-pack-box-align" class="headerlink" title="元素的对齐方式 box-pack box-align"></a>元素的对齐方式 box-pack box-align</h1><p>box-pack为水平方向对齐<br>box-align为垂直方向对齐</p>
+<p>两者共有属性：</p>
+<ul>
+<li>start// 水平靠左 垂直靠顶</li>
+<li>end// 水平靠右 垂直靠底</li>
+<li>center//水平居中 垂直居中</li>
+</ul>
+<p>box-pack属性：</p>
+<ul>
+<li>justify//所有子元素散开显示 第一个跟最后一个元素分别紧靠左右 中间空间平均分配</li>
+</ul>
+<p>box-align属性：</p>
+<ul>
+<li>baseline//所有的子元素沿着基线显示</li>
+<li>stretch(默认值)//如果子元素没设高度，会变的跟父元素一样。</li>
+</ul>
+<h1 id="box-shadow"><a href="#box-shadow" class="headerlink" title="box-shadow"></a>box-shadow</h1><p>阴影 其中inset属性是往内设置阴影<br>box-shadow: none||inset 水平偏移(必须) 垂直偏移(必须) 模糊度(可选) 阴影大小(可选) color</p>
+<h2 id="box-sizing-important"><a href="#box-sizing-important" class="headerlink" title="box-sizing (important)"></a>box-sizing (important)</h2><p>IE 设置width和height 包含了border和padding 可是标准的是不包含的<br>为此要写大量hack 满足不同浏览器需求<br>css3 就增加了box-sizing 自由定义是否包含border和padding</p>
+<ul>
+<li>content-box(默认值)//都不包含</li>
+<li>padding-box//包含padding 不包含border</li>
+<li>border-box//都包含</li>
+<li>inherit//继承</li>
+</ul>
+<h1 id="盒子溢出内容"><a href="#盒子溢出内容" class="headerlink" title="盒子溢出内容"></a>盒子溢出内容</h1><p>overflow-x 和overflow-y</p>
+<ul>
+<li>auto//溢出就出现滚动条</li>
+<li>scroll//不管怎么样 都有滚动条</li>
+<li>hidden//溢出就藏起来</li>
+<li>visible//溢出就溢出 照样显示<br>（新增属性)</li>
+<li>no-conten//溢出 不显示内容</li>
+<li>no-displau//溢出 不显示元素</li>
+</ul>
+<p>That’s all</p>
+
+      
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
     <article id="post-webNote10" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
@@ -852,68 +962,10 @@
 
 
   
-    <article id="post-webNote1" class="article article-type-post" itemscope itemprop="blogPost">
   
-    <div class="article-meta">
-      <a href="/2017/04/13/webNote1/" class="article-date">
-      <time datetime="2017-04-13T13:57:08.616Z" itemprop="datePublished">2017-04-13</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/04/13/webNote1/">前端笔记 hexo</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-        <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>今天第一天搭建自己的hexo个人博客，<br>了解到了一些git以及github方面的知识。<br>那么第一天的前端笔记，就只进行更新关于<br>hexo的一些感想。</p>
-<h2 id="什么是Hexo"><a href="#什么是Hexo" class="headerlink" title="什么是Hexo?"></a>什么是Hexo?</h2><p>Hexo 是一个快速、简洁且高效的博客框架。Hexo 使用 Markdown（或其他渲染引擎）解析文章，在几秒内，即可利用靓丽的主题生成静态网页。</p>
-<h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><p>安装Hexo是很快捷方便的,安装之前,需要安装：</p>
-<ul>
-<li>Node.js</li>
-<li>Git</li>
-</ul>
-<p>然后使用nmp完成Hexo的安装</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">npm install hexo-cli -g</div><div class="line">npm install hexo -save</div><div class="line">hexo -v</div></pre></td></tr></table></figure>
-      
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
+    <nav id="page-nav">
+      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
+    </nav>
   
 </div>
       <footer id="footer">
