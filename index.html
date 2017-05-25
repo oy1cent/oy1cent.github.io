@@ -118,7 +118,7 @@
                     <nav class="header-menu">
                         <ul>
                         
-                            <li><a href="/">个人简历</a></li>
+                            <li><a href="/tesla">Dream Car</a></li>
                         
                             <li><a href="/page">作品展示</a></li>
                         
@@ -191,7 +191,7 @@
             <nav class="header-menu">
                 <ul>
                 
-                    <li><a href="/">个人简历</a></li>
+                    <li><a href="/tesla">Dream Car</a></li>
                 
                     <li><a href="/page">作品展示</a></li>
                 
@@ -807,83 +807,6 @@
 
 
   
-    <article id="post-webNote3" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2017/04/14/webNote3/" class="article-date">
-      <time datetime="2017-04-14T05:27:45.548Z" itemprop="datePublished">2017-04-14</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/04/14/webNote3/">Js笔记（一）</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-        <h2 id="轮播图"><a href="#轮播图" class="headerlink" title="轮播图"></a>轮播图</h2><p>看了几天的js，今天决定动手做一个轮播图<br>看了几个网站，感觉小米的轮播图挺漂亮的<br>于是就决定仿一个出来</p>
-<ul>
-<li><a href="http://www.0y0.top/xiaomi">轮播图</a></li>
-</ul>
-<h2 id="样式"><a href="#样式" class="headerlink" title="样式"></a>样式</h2><p>小米官网的轮播图里有5张图片，于是右键都下载存在img文件目录下<br>主要有三个div，分别是图片img，下面的按钮button，左右切换的按钮</p>
-<ul>
-<li>图片向右浮动，并且在图片1前加一张图片5，图片5后加一张图片1<br>图片排列为 5 1 2 3 4 5 1</li>
-<li>轮播图的外层设置 overflow: hidden;隐藏其他图片</li>
-<li>将外层初始left设置为 -1226px,以此对应图片1的位置</li>
-</ul>
-<h2 id="js实现"><a href="#js实现" class="headerlink" title="js实现"></a>js实现</h2><p>先获取值<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">var img = document.getElementById(&apos;img&apos;);</div><div class="line">var imgs = document.getElementById(&apos;img&apos;).getElementsByTagName(&apos;li&apos;);</div><div class="line">var count = document.getElementById(&apos;count&apos;);</div><div class="line">var counts = document.getElementById(&apos;count&apos;).getElementsByTagName(&apos;li&apos;);</div><div class="line">var prev = document.getElementById(&apos;prev&apos;);</div><div class="line">var next = document.getElementById(&apos;next&apos;);</div></pre></td></tr></table></figure></p>
-<p>先进行左右按钮的onclick事件绑定设置<br>点击事件触发后，图片滚动，既改变外层left值实现滚动<br>并引入index值，左右按钮的点击，增减index值<br>对index值作条件限定，否则超出后，light函数就失效了<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">function checkIndex()&#123;</div><div class="line">	if(index == 5)&#123;</div><div class="line">		index = 0;</div><div class="line">	&#125;</div><div class="line">	else if(index &lt; 0)&#123;</div><div class="line">		index = 4;</div><div class="line">	&#125;</div><div class="line">	else&#123;</div><div class="line">		;</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<p>创建light函数<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">function light()&#123;</div><div class="line">   	for(var i = 0;i&lt;counts.length;i++)&#123;</div><div class="line">   		if(counts[i].className == &quot;on&quot;)&#123;</div><div class="line">   		counts[i].className = &quot;off&quot;;</div><div class="line">   	&#125;</div><div class="line">   	&#125; </div><div class="line">   	console.log(index);</div><div class="line">   	counts[index].className = &quot;on&quot;;	</div><div class="line">   &#125;</div></pre></td></tr></table></figure></p>
-<p>其中counts既下面按钮，根据index值改变className<br>css中设置<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">.on&#123;</div><div class="line">	color: #fff;</div><div class="line">&#125;</div><div class="line">.off&#123;</div><div class="line">	color: #000;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<p>此时点击左右按钮，图片滚动，下面对应按钮亮或熄灭。<br>此时发现，向右点击按钮5次后，图片滚回图片1，再点击后，变为空白<br>我们可以将最后一张图片1与排序为2的图片1绑定<br>同理将第一张图片与排序为6的图片5绑定<br>构造函数checkLeft<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">function checkLeft()&#123;</div><div class="line">	    if(parseInt(img.style.left) &lt; -6130)&#123;</div><div class="line">	    	img.style.left = -1226+&quot;px&quot;;</div><div class="line">	    &#125;</div><div class="line">	    else if(parseInt(img.style.left) == 0)&#123;</div><div class="line">	    	img.style.left = -6130+&quot;px&quot;;</div><div class="line">	    &#125;</div><div class="line">	    else&#123;</div><div class="line">	    	;</div><div class="line">	    &#125;</div><div class="line">	&#125;</div></pre></td></tr></table></figure></p>
-<p>这样呢，就可以无限点一边的按钮，并可以无限循环</p>
-<p>而后进行底层按钮事件绑定，点击对应按钮跳转到对应图片<br>tag函数<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">function tag()&#123;</div><div class="line">		for(var i = 0;i&lt;counts.length;i++)&#123;</div><div class="line">			counts[i].index = i;</div><div class="line">			counts[i].onclick = function()&#123;</div><div class="line">				index = this.index;</div><div class="line">				img.style.left = -1226-(imgs[0].offsetWidth*index)+&quot;px&quot;;</div><div class="line">				light();</div><div class="line">			&#125;</div><div class="line">		&#125;</div><div class="line">	&#125;</div></pre></td></tr></table></figure></p>
-<p>再进行滚动，一次滚动就相当于点击next按钮，设置定时器，3.5秒执行一次函数<br>函数run<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">function run()&#123;</div><div class="line">		clearInterval(dt);</div><div class="line">		dt = setInterval(function()&#123;</div><div class="line">			next.onclick();</div><div class="line">		&#125;,3500)</div><div class="line">		stop();</div><div class="line">	&#125;</div></pre></td></tr></table></figure></p>
-<p>stop函数是用于 当鼠标位于图片、按钮上时，清空定时器，不再滚动<br>当鼠标移出时，图片开始滚动。（在手机上测试，没有鼠标移出事件=-=）</p>
-<p>此时轮播图已经算是完成了<br>不过我希望是滚动的轮播图，于是写了个animate函数<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line">function animate(offset)&#123;</div><div class="line">	animated = true;</div><div class="line">	var newLeft = parseInt(img.style.left)+offset;</div><div class="line">	var timer = 2000;</div><div class="line">	var interval = 20;</div><div class="line">	var speed = Math.round(offset/(timer/interval));</div><div class="line"></div><div class="line">	function go()&#123;</div><div class="line">		if(speed&lt;0 &amp;&amp; parseInt(img.style.left)&gt;newLeft || speed&gt;0 &amp;&amp; parseInt(img.style.left)&lt;newLeft)&#123;</div><div class="line">			img.style.left = parseInt(img.style.left)+speed+&quot;px&quot;;</div><div class="line">			setTimeout(go,interval);</div><div class="line">		&#125;</div><div class="line">		else&#123;</div><div class="line">			animated = false;</div><div class="line">			img.style.left = newLeft + &quot;px&quot;;</div><div class="line">			checkLeft();</div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line">	go();</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<p>其中animated要先声明,作为状态判断<br>因为实际写的时候，点击左右按钮速度快的时候，连续调用animate函数<br>导致轮播图的left值出问题，于是加入状态animated<br>当animate未完成，不允许调用函数</p>
-<p>左右按钮的代码<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line">next.onclick = function()&#123;</div><div class="line">	// img.style.left = parseInt(img.style.left)-1226+&quot;px&quot;;</div><div class="line">	if(!animated)&#123;</div><div class="line">		animate(-1226);</div><div class="line">		index += 1;</div><div class="line">	&#125;</div><div class="line">	checkIndex();</div><div class="line">	light();		</div><div class="line">&#125;</div><div class="line">prev.onclick = function()&#123;</div><div class="line">	// img.style.left = parseInt(img.style.left)+1226+&quot;px&quot;;</div><div class="line">	if(!animated)&#123;</div><div class="line">		animate(1226);</div><div class="line">		index -= 1;</div><div class="line">	&#125;</div><div class="line">	</div><div class="line">	checkIndex();</div><div class="line">	light();</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<p>注释掉的是不带动画的，直接的跳转代码。。。</p>
-
-      
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
     <article id="post-webNote2" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
@@ -935,6 +858,83 @@
 <p>这种方法就是 循环一次调用一次<br>因为循环是瞬间完成的事，所以定时器的1s延时是同一个</p>
 <p>再单独聊聊闭包</p>
 <h2 id="闭包"><a href="#闭包" class="headerlink" title="闭包"></a>闭包</h2><p>当函数可以记住并访问所在的词法作用域（lexical scoping)，并且保持着对词法作用域的引用，即使函数是在当前作用域之外执行，就会形成闭包。对于闭包的形成，实质上涉及的就是词法作用域和将函数作为值return词法作用域是由函数声明时所在的位置决定的，而闭包是词法作用域形成的自然结果。当在函数内部声明了内部函数，并将内部函数作为值返回，就会产生闭包</p>
+
+      
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-webNote3" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2017/04/14/webNote3/" class="article-date">
+      <time datetime="2017-04-14T05:27:45.548Z" itemprop="datePublished">2017-04-14</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/04/14/webNote3/">Js笔记（一）</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <h2 id="轮播图"><a href="#轮播图" class="headerlink" title="轮播图"></a>轮播图</h2><p>看了几天的js，今天决定动手做一个轮播图<br>看了几个网站，感觉小米的轮播图挺漂亮的<br>于是就决定仿一个出来</p>
+<ul>
+<li><a href="http://www.0y0.top/xiaomi">轮播图</a></li>
+</ul>
+<h2 id="样式"><a href="#样式" class="headerlink" title="样式"></a>样式</h2><p>小米官网的轮播图里有5张图片，于是右键都下载存在img文件目录下<br>主要有三个div，分别是图片img，下面的按钮button，左右切换的按钮</p>
+<ul>
+<li>图片向右浮动，并且在图片1前加一张图片5，图片5后加一张图片1<br>图片排列为 5 1 2 3 4 5 1</li>
+<li>轮播图的外层设置 overflow: hidden;隐藏其他图片</li>
+<li>将外层初始left设置为 -1226px,以此对应图片1的位置</li>
+</ul>
+<h2 id="js实现"><a href="#js实现" class="headerlink" title="js实现"></a>js实现</h2><p>先获取值<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">var img = document.getElementById(&apos;img&apos;);</div><div class="line">var imgs = document.getElementById(&apos;img&apos;).getElementsByTagName(&apos;li&apos;);</div><div class="line">var count = document.getElementById(&apos;count&apos;);</div><div class="line">var counts = document.getElementById(&apos;count&apos;).getElementsByTagName(&apos;li&apos;);</div><div class="line">var prev = document.getElementById(&apos;prev&apos;);</div><div class="line">var next = document.getElementById(&apos;next&apos;);</div></pre></td></tr></table></figure></p>
+<p>先进行左右按钮的onclick事件绑定设置<br>点击事件触发后，图片滚动，既改变外层left值实现滚动<br>并引入index值，左右按钮的点击，增减index值<br>对index值作条件限定，否则超出后，light函数就失效了<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">function checkIndex()&#123;</div><div class="line">	if(index == 5)&#123;</div><div class="line">		index = 0;</div><div class="line">	&#125;</div><div class="line">	else if(index &lt; 0)&#123;</div><div class="line">		index = 4;</div><div class="line">	&#125;</div><div class="line">	else&#123;</div><div class="line">		;</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>创建light函数<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">function light()&#123;</div><div class="line">   	for(var i = 0;i&lt;counts.length;i++)&#123;</div><div class="line">   		if(counts[i].className == &quot;on&quot;)&#123;</div><div class="line">   		counts[i].className = &quot;off&quot;;</div><div class="line">   	&#125;</div><div class="line">   	&#125; </div><div class="line">   	console.log(index);</div><div class="line">   	counts[index].className = &quot;on&quot;;	</div><div class="line">   &#125;</div></pre></td></tr></table></figure></p>
+<p>其中counts既下面按钮，根据index值改变className<br>css中设置<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">.on&#123;</div><div class="line">	color: #fff;</div><div class="line">&#125;</div><div class="line">.off&#123;</div><div class="line">	color: #000;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>此时点击左右按钮，图片滚动，下面对应按钮亮或熄灭。<br>此时发现，向右点击按钮5次后，图片滚回图片1，再点击后，变为空白<br>我们可以将最后一张图片1与排序为2的图片1绑定<br>同理将第一张图片与排序为6的图片5绑定<br>构造函数checkLeft<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">function checkLeft()&#123;</div><div class="line">	    if(parseInt(img.style.left) &lt; -6130)&#123;</div><div class="line">	    	img.style.left = -1226+&quot;px&quot;;</div><div class="line">	    &#125;</div><div class="line">	    else if(parseInt(img.style.left) == 0)&#123;</div><div class="line">	    	img.style.left = -6130+&quot;px&quot;;</div><div class="line">	    &#125;</div><div class="line">	    else&#123;</div><div class="line">	    	;</div><div class="line">	    &#125;</div><div class="line">	&#125;</div></pre></td></tr></table></figure></p>
+<p>这样呢，就可以无限点一边的按钮，并可以无限循环</p>
+<p>而后进行底层按钮事件绑定，点击对应按钮跳转到对应图片<br>tag函数<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">function tag()&#123;</div><div class="line">		for(var i = 0;i&lt;counts.length;i++)&#123;</div><div class="line">			counts[i].index = i;</div><div class="line">			counts[i].onclick = function()&#123;</div><div class="line">				index = this.index;</div><div class="line">				img.style.left = -1226-(imgs[0].offsetWidth*index)+&quot;px&quot;;</div><div class="line">				light();</div><div class="line">			&#125;</div><div class="line">		&#125;</div><div class="line">	&#125;</div></pre></td></tr></table></figure></p>
+<p>再进行滚动，一次滚动就相当于点击next按钮，设置定时器，3.5秒执行一次函数<br>函数run<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">function run()&#123;</div><div class="line">		clearInterval(dt);</div><div class="line">		dt = setInterval(function()&#123;</div><div class="line">			next.onclick();</div><div class="line">		&#125;,3500)</div><div class="line">		stop();</div><div class="line">	&#125;</div></pre></td></tr></table></figure></p>
+<p>stop函数是用于 当鼠标位于图片、按钮上时，清空定时器，不再滚动<br>当鼠标移出时，图片开始滚动。（在手机上测试，没有鼠标移出事件=-=）</p>
+<p>此时轮播图已经算是完成了<br>不过我希望是滚动的轮播图，于是写了个animate函数<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line">function animate(offset)&#123;</div><div class="line">	animated = true;</div><div class="line">	var newLeft = parseInt(img.style.left)+offset;</div><div class="line">	var timer = 2000;</div><div class="line">	var interval = 20;</div><div class="line">	var speed = Math.round(offset/(timer/interval));</div><div class="line"></div><div class="line">	function go()&#123;</div><div class="line">		if(speed&lt;0 &amp;&amp; parseInt(img.style.left)&gt;newLeft || speed&gt;0 &amp;&amp; parseInt(img.style.left)&lt;newLeft)&#123;</div><div class="line">			img.style.left = parseInt(img.style.left)+speed+&quot;px&quot;;</div><div class="line">			setTimeout(go,interval);</div><div class="line">		&#125;</div><div class="line">		else&#123;</div><div class="line">			animated = false;</div><div class="line">			img.style.left = newLeft + &quot;px&quot;;</div><div class="line">			checkLeft();</div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line">	go();</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>其中animated要先声明,作为状态判断<br>因为实际写的时候，点击左右按钮速度快的时候，连续调用animate函数<br>导致轮播图的left值出问题，于是加入状态animated<br>当animate未完成，不允许调用函数</p>
+<p>左右按钮的代码<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line">next.onclick = function()&#123;</div><div class="line">	// img.style.left = parseInt(img.style.left)-1226+&quot;px&quot;;</div><div class="line">	if(!animated)&#123;</div><div class="line">		animate(-1226);</div><div class="line">		index += 1;</div><div class="line">	&#125;</div><div class="line">	checkIndex();</div><div class="line">	light();		</div><div class="line">&#125;</div><div class="line">prev.onclick = function()&#123;</div><div class="line">	// img.style.left = parseInt(img.style.left)+1226+&quot;px&quot;;</div><div class="line">	if(!animated)&#123;</div><div class="line">		animate(1226);</div><div class="line">		index -= 1;</div><div class="line">	&#125;</div><div class="line">	</div><div class="line">	checkIndex();</div><div class="line">	light();</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>注释掉的是不带动画的，直接的跳转代码。。。</p>
 
       
       
