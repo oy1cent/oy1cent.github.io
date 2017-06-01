@@ -214,6 +214,82 @@
 </nav>
       <div class="body-wrap">
   
+    <article id="post-webNote12" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2017/05/31/webNote12/" class="article-date">
+      <time datetime="2017-05-31T13:56:37.946Z" itemprop="datePublished">2017-05-31</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/05/31/webNote12/">alphaGo?(ul篇)</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <h2 id="ai五子棋"><a href="#ai五子棋" class="headerlink" title="ai五子棋"></a>ai五子棋</h2><p>这算的上是一个大project了，看视频get到的新技能。<br>用js实现一个陪你下棋的ai五子棋。<br><a href="http://www.0y0.top/aigo">aiGo</a></p>
+<h2 id="ul篇"><a href="#ul篇" class="headerlink" title="ul篇"></a>ul篇</h2><p>整个五子棋的格局由canvas写成，之前对canvas只是浅浅的了解了一下<br>那么今天就来学习一下canvas！</p>
+<h1 id="canvas画布"><a href="#canvas画布" class="headerlink" title="canvas画布"></a>canvas画布</h1><p>首先在html里加一行代码<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;canvas id=&quot;myCanvas&quot; width=&quot;300&quot; height=&quot;300&quot; style=&quot;border: 2px solid #000&quot;&gt;&lt;/canvas&gt;</div></pre></td></tr></table></figure></p>
+<p>这就是一张200x200的画布了<br>之后就是js的事情了<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">const myCanvas = document.getElementById(&quot;myCanvas&quot;);//获取canvas</div><div class="line">const context = myCanvas.getContext(&quot;2d&quot;);//创建 context 对象</div></pre></td></tr></table></figure></p>
+<h1 id="Canvas-线条"><a href="#Canvas-线条" class="headerlink" title="Canvas - 线条"></a>Canvas - 线条</h1><p>我们来画条对角线<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">context.moveTo(0,0);</div><div class="line">context.lineTo(200,200);</div><div class="line">context.stroke();</div></pre></td></tr></table></figure></p>
+<p>stroke这个方法就是用于线条。</p>
+<p>现在我们画一个3x3的棋局<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">for(let i = 1;i &lt; 3;i += 1)&#123;</div><div class="line">	context.moveTo(i*100,0);</div><div class="line">	context.lineTo(i*100,300);</div><div class="line">	context.stroke();</div><div class="line">	context.moveTo(0,i*100);</div><div class="line">	context.lineTo(300,i*100);</div><div class="line">	context.stroke();</div><div class="line">	context.strokeStyle = &quot;#333&quot;;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>通过一个for循环完成对线条的绘制，那么15x15的五子棋棋盘就是通过这个方法实现的。<br>通过strokeStyle还可以对线条颜色进行更改</p>
+<p>Canvas - 文字<br>当然 canvas也可以让我们写入文字进去</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">for(let i = 0;i &lt; 15;i += 1)&#123;</div><div class="line">	context.font = &quot;14px Courier New&quot;;</div><div class="line">	context.fillStyle = &quot;red&quot;;</div><div class="line">	context.fillText(i,25+i*28,12);</div><div class="line">	context.fillText(i,-1,25+i*29);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>这里实现的是一个水平方向和垂直方向上为棋盘加辅助数字功能<br>其中i就是数字0-14<br>font - 定义字体<br>fillText(text,x,y) - 在 canvas 上绘制实心的文本<br>strokeText(text,x,y) - 在 canvas 上绘制空心的文本</p>
+<p>Canvas - 图片</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">const logo = new Image();</div><div class="line">logo.src = &quot;img/chess.jpg&quot;;</div><div class="line">context.drawImage(img,10,10,50,50);</div></pre></td></tr></table></figure>
+<p>把一幅图像放置到画布上, 使用以下方法:<br>drawImage(image,x,y)<br>其中第四第五参数可选，为图片的宽高</p>
+<p>Canvas - 渐变</p>
+<p>为了让棋子美观，用了圆渐变</p>
+<ul>
+<li>createRadialGradient(x,y,r,x1,y1,r1) - 创建一个径向/圆渐变</li>
+<li>createLinearGradient(x,y,x1,y1) - 创建线条渐变</li>
+</ul>
+<p>当我们使用渐变对象，必须使用两种或两种以上的停止颜色。<br>addColorStop()方法指定颜色停止，参数使用坐标来描述，可以是0至1.<br>使用渐变，设置fillStyle或strokeStyle的值为 渐变，然后绘制形状，如矩形，文本，或一条线。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line">/*绘制黑白棋子*/</div><div class="line">const oneStep = function(i,j,me)&#123;</div><div class="line">	context.beginPath();</div><div class="line">	context.arc(15+ 30*i,15+ j*30,13,0,2*Math.PI);</div><div class="line">	context.closePath();</div><div class="line">	const gradient = context.createRadialGradient(15+ i*30+2,15+j*30-2,13,15+ i*30+2,15+j*30-2,0);</div><div class="line">	if(me)&#123;</div><div class="line">		gradient.addColorStop(0,&quot;#0a0a0a&quot;);</div><div class="line">		gradient.addColorStop(1,&quot;#636763&quot;);</div><div class="line">	&#125;</div><div class="line">	else&#123;</div><div class="line">		gradient.addColorStop(0,&quot;#d1d1d1&quot;);</div><div class="line">		gradient.addColorStop(1,&quot;#f9f9f9&quot;);</div><div class="line">	&#125;</div><div class="line">	context.fillStyle = gradient;//将渐变值赋给fillStyle</div><div class="line">	context.fill();</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>HTML5 canvas 元素用于图形的绘制，通过脚本 (通常是JavaScript)来完成.<br>canvas标签只是图形容器，你必须使用脚本来绘制图形。<br>你可以通过多种方法使用Canva绘制路径,盒、圆、字符以及添加图像。</p>
+
+      
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
     <article id="post-webNote11" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
@@ -780,84 +856,6 @@
 <h2 id="match"><a href="#match" class="headerlink" title="match()"></a>match()</h2><p>正则去匹配字符串,匹配成功返回匹配成功的数组,匹配失败返回null :<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">var regExp = /@/;</div><div class="line">var str = &quot;@qq&quot;;</div><div class="line">var str1 = &quot;qq@&quot;;</div><div class="line">console.log(str.match(regExp));//[&quot;@&quot;, index: 0, input: &quot;@qq&quot;]</div><div class="line">console.log(str1.match(regExp));//[&quot;@&quot;, index: 2, input: &quot;qq@&quot;]</div></pre></td></tr></table></figure></p>
 <h2 id="replace"><a href="#replace" class="headerlink" title="replace()"></a>replace()</h2><p>正则去匹配字符串,匹配成功去替换新的字符串 :<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">var regExp = /fuck/;</div><div class="line">var str = &quot;js is fucking interesting&quot;;//fucking means very ^.^</div><div class="line">console.log(str.replace(regExp,&apos;f**k&apos;));//js is f**king interesting</div></pre></td></tr></table></figure></p>
 <p>That’s all</p>
-
-      
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-webNote2" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2017/04/14/webNote2/" class="article-date">
-      <time datetime="2017-04-14T05:27:45.548Z" itemprop="datePublished">2017-04-14</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/04/14/webNote2/">Js笔记（二）</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-        <h2 id="JS作用域"><a href="#JS作用域" class="headerlink" title="JS作用域"></a>JS作用域</h2><p>JavaScript权威指南 中提出的“没有块级作用域”</p>
-<p>1<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">var i = 10;</div><div class="line"><span class="keyword">function</span> <span class="function"><span class="title">a</span></span>()&#123;</div><div class="line">	alert(i);</div><div class="line">&#125;;</div><div class="line">a();//输出10</div></pre></td></tr></table></figure></p>
-<p>2<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">var i = 10;</div><div class="line"><span class="keyword">function</span> <span class="function"><span class="title">a</span></span>()&#123;</div><div class="line">	alert(i);</div><div class="line">	var i = 1 ;</div><div class="line">&#125;;</div><div class="line">a();</div></pre></td></tr></table></figure></p>
-<p>在变量解析过程中首先查找局部的作用域，然后查找上层作用域。在代码一的函数当中没有定义变量i，于是查找上层作用域（全局作用域），进而进行输出其值。但是在代码二的函数内定义了变量i（无论是在alter之后还是之前定义变量，都认为在此作用域拥有变量i），于是不再向上层的作用域进行查找，直接输出i。但是不幸的是此时的局部变量i并没有赋值，所以输出的是undefined。</p>
-<h2 id="闭包与定时器"><a href="#闭包与定时器" class="headerlink" title="闭包与定时器"></a>闭包与定时器</h2><p>写轮播图，在设置自动滚动的时候发现了一些坑<br>今天看了一篇关于闭包的文章，原来坑就是闭包还有定时器= =</p>
-<p>上代码：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">for (var i = 0; i &lt; 5; i++) &#123;</div><div class="line">    setTimeout(function() &#123;</div><div class="line">        console.log(new Date, i);</div><div class="line">    &#125;, 1000);</div><div class="line">&#125;</div><div class="line"></div><div class="line">console.log(new Date, i);</div></pre></td></tr></table></figure></p>
-<p>如果不好好思考的话，很容易想着输出</p>
-<ul>
-<li>0，1，2，3，4，5</li>
-</ul>
-<p>实际呢，这道题是</p>
-<ul>
-<li>5, 5, 5, 5, 5, 5<br>并且呢，是在输出一个5，之后间隔1s的时间才输出剩下的</li>
-</ul>
-<p>这里呢 就涉及到了关于定时器工作机制的问题了<br>我们在循环执行过程中，几乎同时设置了5个定时器，<br>这些定时器都会在 1 秒之后触发，而循环完的输出是立即执行的</p>
-<p>那么，我们改一改代码，让输出变成</p>
-<ul>
-<li>5, 0, 1, 2, 3, 4<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">for(var i = 0;i &lt; 5;i++)&#123;</div><div class="line">	setTimeout(function(j)&#123;</div><div class="line">	console.log(new Date,j);</div><div class="line">	&#125;,1000,i);</div><div class="line">&#125; </div><div class="line"></div><div class="line">console.log(new Date,i)</div></pre></td></tr></table></figure>
-</li>
-</ul>
-<p>还有一种直观的方法：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">var output = function(i)&#123;</div><div class="line">	setTimeout(function()&#123;</div><div class="line">	console.log(new Date,i);</div><div class="line">	&#125;,1000);</div><div class="line">&#125;;</div><div class="line"></div><div class="line">for(var i =0;i &lt; 5;i++)&#123;</div><div class="line">	output(i);</div><div class="line">&#125;</div><div class="line"></div><div class="line">console.log(new Date,i);</div></pre></td></tr></table></figure></p>
-<p>这种方法就是 循环一次调用一次<br>因为循环是瞬间完成的事，所以定时器的1s延时是同一个</p>
-<p>再单独聊聊闭包</p>
-<h2 id="闭包"><a href="#闭包" class="headerlink" title="闭包"></a>闭包</h2><p>当函数可以记住并访问所在的词法作用域（lexical scoping)，并且保持着对词法作用域的引用，即使函数是在当前作用域之外执行，就会形成闭包。对于闭包的形成，实质上涉及的就是词法作用域和将函数作为值return词法作用域是由函数声明时所在的位置决定的，而闭包是词法作用域形成的自然结果。当在函数内部声明了内部函数，并将内部函数作为值返回，就会产生闭包</p>
 
       
       
